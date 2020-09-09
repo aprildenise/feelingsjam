@@ -1,0 +1,3 @@
+Prototype: Hello, this is an example for RPGTalk!
+Prototype: I'm just testing to make sure that I have everything set up! How does it look?
+Prototype: I hope it looks good.
