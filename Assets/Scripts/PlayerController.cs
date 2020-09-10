@@ -74,16 +74,14 @@ public class PlayerController : MonoBehaviour
         // Check for ladder input.
         // Find if the player is interacting with a ladder.
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, checkDistance, ladder);
-        if (hit.collider != null)
+        if (hit.collider != null && moveInput.y > 0)
         {
-            if (moveInput.y > 0)
-            {
-                moveVelocity.y = moveInput.y * moveSpeed;
-                isClimbing = true;
-            }
+            moveVelocity.y = moveInput.y * moveSpeed;
+            isClimbing = true;
         }
         else
         {
+            moveVelocity.y = 0;
             isClimbing = false;
         }
 
@@ -138,7 +136,7 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = originalGravityScale;
         }
         rb.velocity = moveVelocity;
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
     }
 
 
@@ -155,6 +153,11 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetMoveInput()
     {
         return moveInput;
+    }
+
+    public Vector2 GetMoveVelocity()
+    {
+        return moveVelocity;
     }
 
     private void OnDrawGizmos()

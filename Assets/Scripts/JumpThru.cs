@@ -20,11 +20,17 @@ public class JumpThru : MonoBehaviour
         waitTimeCounter = waitTime;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+
         //if (!playerInCollision) return;
 
         // Check if the player is on top of this platform and is trying to move down from it.
+        //if (player.GetMoveInput().y == 0)
+        //{
+        //    waitTimeCounter = waitTime;
+        //}
+
         if (player.GetMoveInput().y < 0)
         {
             if (waitTimeCounter <= 0)
@@ -39,7 +45,7 @@ public class JumpThru : MonoBehaviour
         }
 
         // Check if this player is below this platform and is trying to move onto it.
-        if (player.isClimbing || player.isJumping)
+        if (player.GetMoveVelocity().y > 0)
         {
             effector.rotationalOffset = 0;
         }

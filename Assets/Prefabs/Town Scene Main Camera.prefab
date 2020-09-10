@@ -130,6 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 0.125
-  offset: {x: 0, y: 0, z: 0}
-  xBounds: {x: 0, y: 0}
-  yBounds: {x: 0, y: 0}
+  offset: {x: 0, y: 0, z: -10}
+  xBounds: {x: -15.8, y: 29.1}
+  yBounds: {x: 2.16, y: 50.9}
