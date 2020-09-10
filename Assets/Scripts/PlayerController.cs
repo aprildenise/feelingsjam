@@ -6,26 +6,46 @@ public class PlayerController : MonoBehaviour
 {
 
     // For movement.
+    [Header("Movement")]
     [SerializeField] private float moveSpeed;
     private bool isMoving;
-    private float moveVelocity;
+    private Vector2 moveVelocity = Vector2.zero;
+    private Vector2 moveInput = Vector2.zero;
 
     // For jumping.
+    [Header("Jumping")]
     [SerializeField] private Transform feetPosition;
     [SerializeField] private float jumpTime;
     [SerializeField] private float jumpForce;
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask ground;
-    private bool isJumping;
+    public bool isJumping { get; private set; }
     private bool isGrounded;
     private float jumpTimeCounter;
-    private bool canMove;
+    private bool canMove = true;
+
+    [Header("Climbing Ladders")]
+    [SerializeField] private float checkDistance;
+    [SerializeField] private LayerMask ladder;
+    public bool isClimbing { get; private set; }
+    private float originalGravityScale;
 
     private Rigidbody2D rb;
     private GameManager game;
     private Animator anim;
     private SpriteRenderer sprite;
     private RPGTalkController talk;
+
+    public static PlayerController instance { get; private set; }
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +57,7 @@ public class PlayerController : MonoBehaviour
         talk = RPGTalkController.instance;
         talk.rpgtalk.OnNewTalk += DisableControls;
         talk.rpgtalk.OnEndTalk += EnableControls;
+        originalGravityScale = rb.gravityScale;
     }
 
     // Update is called once per frame
@@ -46,25 +67,42 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
 
         // Get axis input for movement.
-        Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
-        isMoving = moveInput != Vector3.zero;
-        moveVelocity = moveInput.x * moveSpeed;
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveVelocity.x = moveInput.x * moveSpeed;
+        isMoving = moveInput != Vector2.zero;
 
-        // Check for jump input.
+        // Check for ladder input.
+        // Find if the player is interacting with a ladder.
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, checkDistance, ladder);
+        if (hit.collider != null)
+        {
+            if (moveInput.y > 0)
+            {
+                moveVelocity.y = moveInput.y * moveSpeed;
+                isClimbing = true;
+            }
+        }
+        else
+        {
+            isClimbing = false;
+        }
+
+        // Check for jump input and apply the force.
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, checkRadius, ground);
         if (isGrounded && Input.GetKeyDown(KeyCode.P))
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             Debug.Log("Jump!");
-            rb.velocity = Vector3.up * jumpForce;
+            //rb.velocity = Vector3.up * jumpForce;
+            moveVelocity.y = Vector3.up.y * jumpForce;
         }
-
         if (Input.GetKey(KeyCode.P) && isJumping)
         {
             if (jumpTimeCounter > 0)
             {
-                rb.velocity = Vector3.up * jumpForce;
+                //rb.velocity = Vector3.up * jumpForce;
+                moveVelocity.y = Vector3.up.y * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
@@ -75,6 +113,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.P))
         {
             isJumping = false;
+        }
+        if (!isJumping && !isClimbing)
+        {
+            moveVelocity.y = 0;
         }
 
         // Apply animations.
@@ -87,7 +129,16 @@ public class PlayerController : MonoBehaviour
         // Apply movement.
         if (!canMove) rb.velocity = Vector2.zero;
 
-        rb.velocity = new Vector2(moveVelocity, rb.velocity.y);
+        if (isClimbing)
+        {
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = originalGravityScale;
+        }
+        rb.velocity = moveVelocity;
+        Debug.Log(rb.velocity);
     }
 
 
@@ -101,6 +152,10 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
+    public Vector2 GetMoveInput()
+    {
+        return moveInput;
+    }
 
     private void OnDrawGizmos()
     {
