@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -8251970845150517236
     second: Zel Idle_1
+  - first:
+      213: -2657096865540874755
+    second: Zel Idle_0
+  - first:
+      213: 4006257373564131966
+    second: Zel Idle_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -149,14 +155,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8e0cc0188c0f9df0800000000000000
-      internalID: -171404482279895410
+      spriteID: dfdd1ab8a78102bd0800000000000000
+      internalID: -2657096865540874755
       vertices: []
       indices: 
       edges: []
@@ -170,14 +176,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c086ce5bc3c1b7d80800000000000000
-      internalID: -8251970845150517236
+      spriteID: e7a541eead5199730800000000000000
+      internalID: 4006257373564131966
       vertices: []
       indices: 
       edges: []

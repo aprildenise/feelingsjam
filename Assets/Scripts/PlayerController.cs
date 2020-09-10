@@ -19,21 +19,32 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     private float jumpTimeCounter;
+    private bool canMove;
 
     private Rigidbody2D rb;
     private GameManager game;
     private Animator anim;
+    private SpriteRenderer sprite;
+    private RPGTalkController talk;
 
     // Start is called before the first frame update
     void Start()
     {
         game = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        talk = RPGTalkController.instance;
+        talk.rpgtalk.OnNewTalk += DisableControls;
+        talk.rpgtalk.OnEndTalk += EnableControls;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (!canMove) return;
+
         // Get axis input for movement.
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
         isMoving = moveInput != Vector3.zero;
@@ -65,13 +76,31 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
+
+        // Apply animations.
+        if (moveInput.x > 0) sprite.flipX = false;
+        if (moveInput.x < 0) sprite.flipX = true;
     }
 
     private void FixedUpdate()
     {
         // Apply movement.
+        if (!canMove) rb.velocity = Vector2.zero;
+
         rb.velocity = new Vector2(moveVelocity, rb.velocity.y);
     }
+
+
+    private void DisableControls()
+    {
+        canMove = false;
+    }
+
+    private void EnableControls()
+    {
+        canMove = true;
+    }
+
 
     private void OnDrawGizmos()
     {
