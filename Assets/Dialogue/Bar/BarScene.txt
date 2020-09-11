@@ -1,7 +1,7 @@
-Zel: ... Okay! I made it!
-Zel: ...
-Zel: ...
-Zel: ...
+Zel: (... Okay! I made it!)
+Zel: (...)
+Zel: (...)
+Zel: (...)
 A Villager: Oh, Zel's here.
 A Villager: What? Really?
 A Villager: I'm impressed...
@@ -13,8 +13,7 @@ A Villager: Winter must have pressured her. There's no way!
 A Villager: Don't say that!
 A Villager: She's doing her best.
 A Villager: ...I can't wait until she actually changes...
-Zel: ...Maybe it wasn't time for me to come out yet.
+Zel: (...Maybe it wasn't time for me to come out yet.)
 Lee: Zel, is that you?
-Zel: ...Maybe it wasn't time for me to come out yet.
 Lee: ...Are you alright?
-Zel: Ugh, I can't let them see me like this! I'm too embarrassed and nervous now! I'm going home!
+Zel: (Ugh, I can't let them see me like this! I'm too embarrassed and nervous now! I'm going home!)

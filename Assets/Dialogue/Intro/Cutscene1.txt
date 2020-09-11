@@ -1,25 +1,29 @@
-Zel: Hooray to another Happy New Years!
-Zel: ...
-Zel: Ah, Who am I kidding? Hooray to another sad, lonely New Years.
+Zel: (Hooray to another Happy New Years!)
+Zel: (...)
+Zel: (Ah, Who am I kidding? Hooray to another sad, lonely New Years.)
+Zel: (I'm here crying again on a holiday.) *sniff*
 Text: Ping!
-Zel: It must be the group chat blowing up.
-Text: Hey Fey, should I order another pitcher for the table?
-Text: yaaaaaaaa
-Text: :D
-Text: okie
-Text: I'm here!
-Text: We're in the back!
-Text: Fey's in the bathroom
-Text: tghere's a line of cute weomen
-Text: She's drunk
-Text: I'm drunk
-Zel: Wish I could join, but I'm not into getting trashed in public anymore.
-Zel: Don't they know that already? Do they not care?
-Zel: ...
-Zel: But it sure sounds fun to hang out with them than stay in here.
-Zel: Maybe I should catch up with them? It's just a little walk anyway.
-Zel: ...
-Zel: Yeah, I think I'm tired of being sad anyways.
-Zel: Time to have fun!
-Zel: ...
-Zel: Lemme dry my tears off first.
+Zel: (A text message? It must be the group chat blowing up.)
+Text Messege: Hey Fey, should I order another pitcher for the table?
+Text Messege: yaaaaaaaa
+Text Messege: :D
+Text Messege: okie
+Text Messege: I'm here!
+Text Messege: We're in the back!
+Text Messege: Fey's in the bathroom
+Text Messege : tghere's a line of cute weomen
+Text Messege: She's drunk
+Text Messege: I'm drunk
+Zel: (Wish I could join, but I'm not comfortable drinking in public.)
+Zel: (Don't they know that already? Do they not care?)
+Zel: (...)
+Zel: (It's not really their responsibility to stop what they're doing just 'cause of little me though.)
+Zel: (But it sure sounds fun to hang out with them than stay in here.)
+Zel: (Maybe I should catch up with them? It's just a little walk anyway.)
+Zel: (...)
+Zel: (Yeah! Maybe that will help!)
+Zel: (I think I'm tired of being sad anyways.)
+Zel: (Time to have fun!)
+Zel: (...)
+Zel: (This is exhausting...)
+Zel: (Lemme dry my tears first...)

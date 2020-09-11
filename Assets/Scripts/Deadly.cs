@@ -22,7 +22,7 @@ public class Deadly : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            game.GoToScene(4);
+            game.GoToScene(5);
         }
     }
 
