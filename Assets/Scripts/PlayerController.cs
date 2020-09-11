@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
 
         // Check for jump input and apply the force.
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, checkRadius, ground);
+
+        isGrounded = true; // Infinite jump;
         if (isGrounded && Input.GetKeyDown(KeyCode.P))
         {
             isJumping = true;

@@ -7,10 +7,10 @@ public class DeadlyOnProximity : MonoBehaviour
 
     public float interactionRadius;
 
-    private PlayerController player;
-    private Deadly deadly;
+    protected PlayerController player;
+    protected Deadly deadly;
 
-    private void Start()
+    protected void Start()
     {
         player = PlayerController.instance;
         deadly = GetComponent<Deadly>();
@@ -21,10 +21,19 @@ public class DeadlyOnProximity : MonoBehaviour
     {
         if (Vector2.Distance(player.transform.position, this.transform.position) <= interactionRadius)
         {
-            deadly.enabled = true;
+            EnableDeadly();
         }
     }
 
+    protected void EnableDeadly()
+    {
+        deadly.enabled = true;
+    }
+
+    protected void OnDrawGizmos()
+    { 
+        Gizmos.DrawWireSphere(transform.position, interactionRadius);
+    }
 
 
 }

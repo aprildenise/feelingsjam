@@ -14,7 +14,7 @@ public class AnimateLeeInBar : MonoBehaviour
     private void Update()
     {
 
-        if (text.text.Equals("Zel, is that you?"))
+        if (text.text.Contains("Zel,"))
         {
             transform.Translate(Vector2.left * Time.deltaTime);
         }

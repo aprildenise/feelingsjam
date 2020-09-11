@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BarScene.unity
     guid: c5686bdd09daa2448b7095aaf9aaaa18
+  - enabled: 1
+    path: Assets/Scenes/TownChaseScene.unity
+    guid: 6bdd65127fdc30a4499d2cb98c06013e
+  - enabled: 1
+    path: Assets/Scenes/IntoDeadliness.unity
+    guid: 77b095e40427e3344aef20393894fc58
   m_configObjects: {}
