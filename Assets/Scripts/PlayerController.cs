@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     public bool isClimbing { get; private set; }
     private float originalGravityScale;
 
+    [Header("Interaction")]
+    [SerializeField] public GameObject exclamation;
+
     private Rigidbody2D rb;
     private GameManager game;
     private Animator anim;
@@ -125,7 +128,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Apply movement.
-        if (!canMove) rb.velocity = Vector2.zero;
+        if (!canMove)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
 
         if (isClimbing)
         {

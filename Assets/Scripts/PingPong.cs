@@ -6,6 +6,7 @@ public class PingPong : MonoBehaviour
 
     public float delta = 1.5f;  // Amount to move left and right from the start point
     public float speed = 2.0f;
+    public bool allowMovementOnRPGTalk = true;
     private Vector3 startPos;
     private Animator anim;
     private SpriteRenderer sprite;
@@ -21,7 +22,7 @@ public class PingPong : MonoBehaviour
 
     void Update()
     {
-        if (talk.rpgtalk.isPlaying) return;
+        if (talk.rpgtalk.isPlaying && !allowMovementOnRPGTalk) return;
 
         // Calculate ping pong movement.
         Vector2 movement = startPos;
