@@ -741,7 +741,7 @@ MonoBehaviour:
   mainCamera: 1
   otherCamera: {fileID: 0}
   txtToParse: {fileID: 4900000, guid: bc48239e6190cee4ea054337518f7bf8, type: 3}
-  enableQuickSkip: 1
+  enableQuickSkip: 0
   callback:
     m_PersistentCalls:
       m_Calls:
@@ -767,14 +767,14 @@ MonoBehaviour:
   shouldUsePhotos: 0
   characters: []
   UIPhoto: {fileID: 0}
-  shouldStayOnScreen: 0
-  textAudio: {fileID: 0}
-  passAudio: {fileID: 0}
-  passWithMouse: 1
+  shouldStayOnScreen: 1
+  textAudio: {fileID: 8300000, guid: 49c855462770641229c932e59dd505e5, type: 3}
+  passAudio: {fileID: 8300000, guid: 49c855462770641229c932e59dd505e5, type: 3}
+  passWithMouse: 0
   passWithInputButton: 
-  passWithKey: 0
+  passWithKey: 32
   enablePass: 1
-  autoPass: 0
+  autoPass: 1
   secondsAutoPass: 3
   lineToStart: 1
   lineToBreak: 1
@@ -804,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635083467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.5, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -96,7 +96,6 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
-            Debug.Log("Jump!");
             //rb.velocity = Vector3.up * jumpForce;
             moveVelocity.y = Vector3.up.y * jumpForce;
         }
