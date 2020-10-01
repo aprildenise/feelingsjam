@@ -12,6 +12,8 @@ public class PingPong : MonoBehaviour
     private SpriteRenderer sprite;
     private RPGTalkController talk;
 
+    private float time;
+
     void Start()
     {
         startPos = transform.position;
@@ -22,11 +24,18 @@ public class PingPong : MonoBehaviour
 
     void Update()
     {
-        if (talk.rpgtalk.isPlaying && !allowMovementOnRPGTalk) return;
+        if (talk.rpgtalk.isPlaying && !allowMovementOnRPGTalk)
+        {
+            return;
+        }
+        else
+        {
+            time += Time.deltaTime;
+        }
 
         // Calculate ping pong movement.
         Vector2 movement = startPos;
-        float change = Mathf.Sin(Time.time * speed);
+        float change = Mathf.Sin(time * speed);
 
         // Apply animations and sprite flips.
         if (change >= .99f) sprite.flipX = true;
@@ -34,6 +43,7 @@ public class PingPong : MonoBehaviour
 
         // Apply ping pong movement.
         movement.x += change * delta;
+        Debug.Log(movement);
         transform.position = movement;
     }
 }

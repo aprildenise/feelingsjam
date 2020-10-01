@@ -45,7 +45,7 @@ public class JumpThru : MonoBehaviour
         }
 
         // Check if this player is below this platform and is trying to move onto it.
-        if (player.GetMoveVelocity().y > 0)
+        if (player.GetMoveVelocity().y > 0 || player.isJumping)
         {
             effector.rotationalOffset = 0;
         }
